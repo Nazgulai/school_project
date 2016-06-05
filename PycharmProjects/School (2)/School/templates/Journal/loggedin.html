@@ -1,0 +1,16 @@
+{% extends 'Journal/base.html' %}
+{% load staticfiles %}
+{%  block content %}
+
+    <div class="container-fluid">
+    <div class="col-lg-9 col-lg-offset-0">
+        <div class="span9">
+            <p style="float: right">  <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <a href="{% url 'Journal:logout' %}"> Ситемадан Чыгуу</a> </p>
+            <h5> Мугалим: {{ full_name }} {% now "d F Y, H:i, l" %}</h5>
+
+    </div>
+    </div>
+    </div>
+
+{% endblock %}

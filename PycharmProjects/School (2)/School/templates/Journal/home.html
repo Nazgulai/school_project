@@ -1,0 +1,66 @@
+{% load my_tags %}
+<body>
+<style>
+    input[type='number'] {
+        width: 30px;
+    }
+    div.point{
+            width: 23px;
+        text-align: center;
+     }
+    div.scroll {
+    background-color: #00FFFF;
+    width:auto;
+    height: auto;
+    overflow: auto;
+}
+
+</style>
+<h3>Класстык Журнал</h3>
+<h4>{{ group.school_year }} Окуу жылы</h4>
+<form method="POST">
+
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" name="select_group" value="Тандоо">
+    <hr>
+    <div class="container">
+        <div class="scroll">
+            <table class="table table-striped table-bordered " border="1" cellspacing="0">
+                <tr>
+                    <th colspan="2"></th>
+                    {% for month, days in months %}
+                        <th colspan="{{ days }}">{{ month }}</th>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <th>№</th>
+                    <th>Окуучулар</th>
+                    {% for date in period %}
+                        <th>{{ date.day }}</th>
+                    {% endfor %}
+                </tr>
+                {% for student in students %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ student }}</td>
+                        {% for date in period %}
+                            <td>
+                                {% get_students_point points student date as point %}
+                                {% if point %}
+                                    <div class="point">{{ point }}</div>
+                                    <input name='student_{{ student.id }}' type="hidden"/>
+                                {% else %}
+                                    <input name='student_{{ student.id }}' type="number"/>
+                                {% endif %}
+                            </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+            <br>
+            <input type="submit" name="set_points" value="Баа койуу">
+        </div>
+    </div>
+</form>
+</body>

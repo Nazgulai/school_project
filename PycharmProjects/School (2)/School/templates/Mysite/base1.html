@@ -1,0 +1,27 @@
+{#{% load static %}#}
+{#{% load crispy_forms_tags %}#}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#<link rel="stylesheet" type="text/css" href="{% static 'min/style.css' %}" />#}
+{#<link rel="stylesheet" type="text/css" href="{% static 'min/materialize.css' %}" />#}
+{#</head>#}
+{#<body>#}
+{#<nav>#}
+{#    <div class="nav-wrapper">#}
+{#        <ul id="nav-mobile" class="right hide-on-med-and-down">#}
+{#              {% url "base_home" as base_home %}#}
+{#              {% url "gallery" as gallery %}#}
+{#       	<li {% if request.path == base_home %} {% endif %}><a href="{% url 'base_home' %}">Home</a></li>#}
+{#       	<li {% if request.path == gallery %} {% endif %}><a href="{% url 'gallery' %}">Gallery</a></li>#}
+{##}
+{#      </ul>#}
+{#    </div>#}
+{#</nav>#}
+{#{% block content %}#}
+{#{% endblock %}#}
+{#</body>#}
+{#</html>#}
+

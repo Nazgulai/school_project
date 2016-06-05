@@ -1,0 +1,26 @@
+{#{% extends 'Mysite/base.html' %}#}
+{#{% load static %}#}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{#<body>#}
+{#{% block content %}#}
+{#    {%  for f in file %}#}
+{#        <h6>{{ f.title }}</h6>#}
+{#       <embed menu="false" src="{{ f.file.url }}"></embed>"#}
+{#        <object data="{{ f.file.url }}" type="application/pdf" width="300" height="200">#}
+{#</object>#}
+{#    {% endfor %}#}
+{##}
+{##}
+{#<h1>{{ property.title }}</h1>#}
+{#{% for i in image_list %}#}
+{#    <br>#}
+{#   <images src="{{ i.image.url }}">#}
+{#        {% endfor %}#}
+{#{% endblock %}#}
+{#</body>#}
+{#</html>#}

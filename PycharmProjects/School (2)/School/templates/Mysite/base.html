@@ -1,0 +1,152 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title  %}{% endblock %}</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="department" content="School"/>
+  <meta name="audience" content="all">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="description" content="{% block description %}{% endblock %}">
+  <meta name="keywords" content="{% block keywords %}{% endblock %}">
+  <meta name="author" content="{% block author %}{% endblock %}">
+  <meta property="og:url" content="{{ request.get_host }}{% block url_og %}{% endblock %}"/>
+{#  <meta property="og:site_name" content="Тоголок Молдо мектеп-интернаты"/>#}
+{% load staticfiles %}
+  <!-- Material Design Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+ <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
+
+
+  <!-- Material Design Bootstrap -->
+  <link href="{% static  'css/mdb.css' %}" rel="stylesheet">
+
+  <!-- Template style -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head
+<body>
+  <!-- Navigation -->
+  <nav class="navbar z-depth-2 info-color">
+    <div class="container ">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand waves-effect waves-light" href="{% url 'base_home' %}"><img src="{% static 'images/logo.jpg' %}" style="height: 50px; width: 50px;"/> </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          {% url "base_home" as base_home %}
+          {% url "gallery" as gallery %}
+          <li {% if request.path == base_home %} {% endif %}><a href="{% url 'base_home' %}" class="waves-effect waves-light">БАШКЫ БЕТ <span class="sr-only">(current)</span></a></li>
+          <li {% if request.path == gallery %} {% endif %}><a href="{% url 'gallery' %}" class="waves-effect waves-light">ГАЛЕРЕЯ</a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" role="button" aria-expanded="false">ЛИСТ (кеңейтүү үчүн басыңыз) <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="http://mdbootstrap.com/product/magic-portfolio-for-video-maker/">Video Maker</a>
+              </li>
+              <li><a href="http://mdbootstrap.com/material-design-for-bootstrap/">Material Design for Bootstrap</a>
+              </li>
+              <li><a href="http://mdbootstrap.com/product/magic-portfolio-for-creative-agency">Creative Agency</a>
+              </li>
+              <li><a href="http://mdbootstrap.com/product/magic-portfolio-photographer">Photographer Portfolio</a>
+              </li>
+              <li class="divider"></li>
+              <li><a href="#footer">Footer</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+{#        <form class="navbar-form navbar-right waves-effect waves-light" role="search">#}
+{#          <div class="form-group">#}
+{#            <input type="text" class="form-control" placeholder="Search">#}
+{#          </div>#}
+{#        </form>#}
+      </div>
+    </div>
+  </nav>
+
+{% block content %}
+
+  {% endblock %}
+
+
+  <!-- Footer -->
+  <footer class="page-footer info-color darken-1" if="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-md-offset-1">
+          <p class="white-text center-on-small-only"> БИЗДИН ДАРЕК   </p>
+          <p class="white-text center-on-small-only">Кыргыз Республикасы,
+              <br>Бишкек шаары,
+              <br>Токонбаев көчөсү-32
+              <br> <span><i class="fa fa-phone fa-lg"></i><a href="tel:+996771206483"> 0 (312) 78 56 45</a></span>
+              <br><span><i class="fa fa-envelope-o fa-lg"></i><a href="tel:+996771206483"> naz.shergazieva@gmail.com</a></span>
+          </p>
+        </div>
+        <hr class="hidden-lg hidden-md">
+
+        <div class="col-md-2">
+          <p class="white-text center-on-small-only">ШИЛТЕМЕЛЕР</p>
+          <ul>
+            <li><a href="#" data-toggle="modal" data-target="#myModal" class="grey-text text-lighten-3" href="#!">Contact us</a>
+            </li>
+            <li><a class="grey-text text-lighten-3" href="http://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">About MDB</a>
+            </li>
+            <li><a class="grey-text text-lighten-3" href="http://mdbootstrap.com/forums/forum/support/" target="_blank">Support</a>
+            </li>
+            <li><a class="grey-text text-lighten-3" href="http://mdbootstrap.com/forums/forum/bugs/" target="_blank">Bug report</a>
+            </li>
+
+
+          </ul>
+        </div>
+        <hr class="hidden-lg hidden-md">
+
+        <div class="col-md-3 text-center">
+          <p class="white-text text-center">СОЦИАЛДЫК ТАРМАКТАР</p>
+          <a target="_blank" href="https://www.facebook.com/togolokmoldo71?fref=ts" class="btn-floating btn-large fb-bg waves-effect waves-light"><i class="fa fa-facebook"> </i></a>
+          <a target="_blank" href="https://twitter.com" class="btn-floating btn-large tw-bg waves-effect waves-light"><i class="fa fa-twitter"> </i></a>
+          <a target="_blank" href="https://plus.google.com" class="btn-floating btn-large gplus-bg waves-effect waves-light"><i class="fa fa-google-plus"> </i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        <div class="col-md-10 col-md-offset-1"> © 2015 Copyright <a href="http://www.71-mektep.kg">71-mektep.kg </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- SCRIPTS -->
+
+  <!-- JQuery -->
+  <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js'%}"></script>
+
+  <!-- Material Design Bootstrap -->
+  <script type="text/javascript" src="{% static 'js/mdb.js' %}"></script>
+
+
+
+</body>
+
+</html>

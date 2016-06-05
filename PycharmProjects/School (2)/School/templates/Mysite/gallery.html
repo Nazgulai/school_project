@@ -1,0 +1,53 @@
+{% extends 'Mysite/base.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+{% block content%}
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <title>Lightbox Example</title>
+  <link rel="stylesheet" href="{% static 'css/lightbox.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+<div class="container" style="margin-left:84px">
+<h2>ГАЛЕРЕЯ</h2>
+
+    <div class="gallery">
+        <div class="row">
+            {% for a in album %}
+
+            <div class="col-lg-3">
+            <h5>
+                {{ a.title }}
+            </h5>
+                <a href="{% url 'images' a.id %} ">
+                    <img src="{{  a.get_image.url }}" width="200px" style="height: 200px; margin-bottom: 30px;" class="img-thumbnail"/>
+                </a>
+
+            </div>
+            {%  endfor %}
+        </div>
+
+    </div>
+</div>
+
+{#{% for a in album %}#}
+{#    <h3>{{ a.title }}</h3>#}
+{#    <a href="{% url 'images' a.id %}" >#}
+{#            <img src=" " width="100" height="100"></a>#}
+{#{%  endfor %}#}
+
+ <script src="{% static 'js/bootstrap.min.js' %}"></script>
+ <script src="{% static 'js/jquery.min.js' %}"></script>
+{# <script src="{% static 'js/lightbox.min.js' %}"></script>#}
+{# <script src="{% static 'js/lightbox.min.map' %}"></script>#}
+ <script src="{% static 'js/lightbox.js' %}"></script>
+{# <script src="{% static 'js/lightbox-plus-jquery.js' %}"></script>#}
+{# <script src="{% static 'js/lightbox-plus-jquery.min.js' %}"></script>#}
+{# <script src="{% static 'js/lightbox-plus-jquery.min.map' %}"></script>#}
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'Mysite/base.html' %}
+{% load staticfiles %}
+{%  block content %}
+<h2>Your login details are invalid!</h2>
+    <p> Click <a href="{% url 'teacher_login_portal' %}"> Here</a> to login again.</p>
+
+
+
+{% endblock%}

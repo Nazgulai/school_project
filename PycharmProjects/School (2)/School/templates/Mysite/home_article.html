@@ -1,0 +1,77 @@
+{% extends 'Mysite/base.html' %}
+{% load static %}
+{#{% load crispy_forms_tags %}#}
+{% block content %}
+ <div class=" container-fluid " style="padding-top: 0;  ">
+    <div class="articleHeader ">
+    <div class="col-md-8 col-md-offset-2">
+        <img src="{% if article.image.url != null %}{{ article.image.url }}{% else %}none{% endif %}">
+        <h2 class="articleTitle">{{ article.title }}</h2>
+        <h6>{{ article.date }}</h6>
+    </div>
+
+      <div class="col-md-8 col-md-offset-2">
+                {{ article.body|safe }}
+                <p style="text-align: justify">{{ article.text }}</p>
+      </div>
+ </div>
+    <div class="commentSection">
+         <div class="articleComments" id="comments">
+             <div class="col-md-6 col-md-offset-3">
+                  <div style="border-bottom: 1px black solid; margin-bottom: 15px;;"><h3>Комментарийлер</h3></div>
+                  {% if comment %}
+                      {% for c in comment %}
+                       <ul class="commentsList">
+                            <li>
+                                <h5 style="display: inline"><b>
+                                    <i class="fa fa-user"></i>
+                                    <span class="authorac">{{ c.name }}</span>
+                                </b>
+                                </h5>
+                                <h6 style="display: inline; margin-left: 15px">
+                                    <i style="color: rgba(0, 0, 0, 0.6);" class="fa fa-calendar-o"></i>
+                                    <span style="color: rgba(0, 0, 0, 0.6);">{{ c.date }}</span>
+                                </h6>
+
+                                <div class="commenttext">{{ c.text }}</div>
+
+                            </li>
+                        </ul>
+                      {% endfor %}
+                   {% else %}
+                    <ul class="commentsList">
+                        <li>Комментарий жок</li>
+                    </ul>
+
+                 {% endif %}
+               <form action="{% url 'addcomment' article.id %}" method="post">
+                    <div class="the_form">
+                        <p>
+                            {% csrf_token %}
+                            {{ form.label}}
+                            {{ form }}
+                        </p>
+                    </div>
+                    <input type="submit" class="btn btn-primary btn-material" value="Комментарий берүү">
+                </form>
+             </div>
+    </div>
+    </div>
+ </div>
+
+{#    <h1>{{ article.title }}</h1>#}
+{#    <h5>{{ article.date }}</h5>#}
+{#  <img src="{{ article.image.url }}">#}
+{#    <p>{{ article.text }}</p>#}
+{#    <hr>#}
+{#    {% for c in comment %}#}
+{#        <p>{{ c.text }}</p>#}
+{#    {% endfor %}#}
+{#    <form action="{% url 'addcomment' article.id %}" method="post">#}
+{#{% csrf_token %}#}
+{#    {{ form }}#}
+{#    <input type="submit" value="Добавить Комментарий" class="btn btn-default">#}
+{#    </form>#}
+{#{% endblock %}#}
+
+{% endblock %}

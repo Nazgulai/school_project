@@ -1,0 +1,77 @@
+{#{% extends 'Mysite/base.html' %}#}
+{#{% load crispy_forms_tags %}#}
+{% load staticfiles %}
+{#{% block content %}#}
+
+    <!-- Material Design Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+ <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
+
+
+  <!-- Material Design Bootstrap -->
+  <link href="{% static  'css/mdb.css' %}" rel="stylesheet">
+
+  <!-- Template style -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+<div class="container" style="padding-top: 150px; ">
+      <form action="{% url 'Journal:auth_view' %}" method="POST">
+        <div class="test">
+        {% csrf_token %}
+        </div>
+
+{#        {% if form.errors %}#}
+{#            <p class="error"> Кечиресиз, колдонуучу аты же чыр сөз ката!</p>#}
+{#        {% endif %}#}
+        <div class="card-panel" style="width: 300px; margin: auto">
+            <div class="row">
+                {#              <form class="col-md-12" >#}
+              <h5>Системага кирүү</h5>
+                <br>
+        {% if error %}
+            <p class="error"> Кечиресиз, колдонуучу аты же cыр сөз ката!</p>
+        {% endif %}
+                <div class="input-field">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="username" type="text" class="validate" name="username" value="">
+                    <label for="username">Колдонуучу Аты</label>
+                </div>
+                <div class="input-field">
+                    <i class="material-icons prefix">lock</i>
+                    <input id="password" type="password" class="validate" name="password" value="">
+                    <label for="password">Сыр Сөз</label>
+                </div>
+                {#              </form>#}
+                <div class="text-center">
+                    <button type="submit" class="btn btn-info waves-effect waves-light">Кирүү</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+    {#    <form action="{%  url 'auth_view' %}" method="post">{% csrf_token %}#}
+    {#    <label for="username"> Username</label>#}
+    {#    <input type="text" name="username" value=" " id="username">#}
+    {#    <label for="password">Password</label>#}
+    {#    <input type="password" name="password" value=" " id="password">#}
+    {#    <input type="submit" value="login"/>#}
+    {#    </form>#}
+
+{#{% endblock %}#}
+<!-- SCRIPTS -->
+
+  <!-- JQuery -->
+  <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js'%}"></script>
+
+  <!-- Material Design Bootstrap -->
+  <script type="text/javascript" src="{% static 'js/mdb.js' %}"></script>
+

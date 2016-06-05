@@ -1,0 +1,70 @@
+.page-content {
+    margin-top: 40px;
+}
+
+.carousel,
+.carousel-inner,
+.carousel-inner .item {
+  height: 400px;
+    margin-bottom: 50px;
+}
+
+.item:nth-child(1) {
+    /*background-image: url(http://www.president.kg/files/media/11/11904.jpg);*/
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.item:nth-child(2) {
+    /*background-image: url(http://brandflow.pl/wp-content/uploads/2015/08/p3.jpg);*/
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.item:nth-child(3) {
+    /*background-image: url(http://brandflow.pl/wp-content/uploads/2015/08/p4.jpg);*/
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+p {
+    font-size: 16px;
+    line-height: 30px;
+    color: #666666;
+}
+
+.call-to-action-widget {
+    padding: 30px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.fb-bg {
+background-color: #3B5998;
+}
+.tw-bg {
+background-color: #55ACEE;
+}
+.gplus-bg {
+background-color: #DD4B39;
+}
+
+footer.page-footer a {
+line-height: 25px;
+}
+
+footer.page-footer a {
+color: #fff;
+font-size: 15px;
+}
+
+
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    z-index: 2;
+    color: #fff;
+    background-color: #33b5e5 !important;
+    border-color: #337ab7;
+    cursor: default;
+}

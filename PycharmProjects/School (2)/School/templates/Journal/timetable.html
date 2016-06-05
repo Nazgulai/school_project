@@ -1,0 +1,50 @@
+{% extends 'Journal/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Time table</title>
+</head>
+<body>
+<div class="container">
+    <h2>Жадыбал</h2>
+    <h4>{{ group.school_year }}</h4>
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Показать">
+</form>
+<h3>{{ current_year  }}</h3>
+<h3>  {{ group }} класынын жадыбалы </h3>
+
+
+
+
+    {% for day, lessons in lessons_by_days.items %}
+<table border="1" cellspacing="0" style="display: block; float: left; margin-right: 10px;">
+        <tr>
+            <th>{{ day }}</th>
+        </tr>
+
+        {% for lesson in lessons %}
+            <tr>
+                <td>
+                    {{ lesson.subject.subject }}
+                </td>
+
+            </tr>
+
+        {% endfor %}
+
+ </table>
+    {% endfor %}
+
+
+
+</div>
+
+</body>
+</html>
+{% endblock %}

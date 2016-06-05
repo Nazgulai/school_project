@@ -1,0 +1,16 @@
+{% extends 'Mysite/base.html' %}
+{% load staticfiles %}
+{%  block content %}
+    <div class="container-fluid">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="span9">
+            <p style="float: right">  <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <a href="{% url 'logout' %}"> Logout</a> </p>
+            <h5> Мугалим: {{ full_name }}</h5>
+            <a href="">Attendance</a>
+        </div>
+
+    </div>
+    </div>
+
+{% endblock %}
